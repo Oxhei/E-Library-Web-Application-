@@ -1,0 +1,43 @@
+﻿@page
+@model LibraryApp.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "User";
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" asp-page="/Users/AddUser">Add User</a>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var usr in Model.UserList)
+                        {
+                            <tr>
+                                <th scope="row">@usr.Id</th>
+                                <td>@usr.FirstName</td>
+                                <td>@usr.LastName</td>
+                                <td>@usr.Email</td>
+                                <td>
+                                    <a asp-page="/Users/EditUser" asp-route-id="@usr.Id" class="btn btn-success btn-sm">Edit</a>
+                                    <a asp-page="/Users/DeleteUser" asp-route-id="@usr.Id" class="btn btn-success btn-sm">delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

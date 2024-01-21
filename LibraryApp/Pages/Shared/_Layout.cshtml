@@ -1,0 +1,112 @@
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Library_Application</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Library_Application.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <header>
+        <!-- Header (Navigation) -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Bucks Library</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                       @*  <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="/Index" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Home
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#bookCarousel1">Book of the Month</a>
+                                <a class="dropdown-item" href="#bookCarousel2">Arts & Culture</a>
+                                <a class="dropdown-item" href="#bookCarousel3">Fiction & Non-Fiction</a>
+                                <a class="dropdown-item" href="#bookCarousel4">Business</a>
+                                <a class="dropdown-item" href="#bookCarousel5">Health</a>
+                                <a class="dropdown-item" href="#bookCarousel6">Search By Subject</a>
+                            </div>
+                        </li> *@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Contact">Contact Us</a>
+                        </li>
+                        @{
+                            if (!String.IsNullOrEmpty(Model.LoginUserEmail))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Categories/Index">Category</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Books/Index">Book</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Users/Index">User</a>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Search Bar -->
+            <form class="d-flex" method="post" >
+                <input class="form-control me-2" type="search" name="searchBook" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            @{
+                if (String.IsNullOrEmpty(Model.LoginUserEmail))
+                {
+                    <!-- Sign In and Sign Up Buttons -->
+                    <div class="d-flex">
+                        <a href="/SignIn" class="btn mx-2">Sign In</a>
+                        <a href="/SignUp" class="btn mx-2">Sign Up</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex">
+                        <a href="/SignUp" class="btn mx-2">LogOut</a>
+                    </div>
+                }
+            }
+
+        </nav>
+    </header>
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Library_Application - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

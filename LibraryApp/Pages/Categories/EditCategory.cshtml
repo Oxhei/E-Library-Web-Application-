@@ -1,0 +1,27 @@
+﻿@page
+@model LibraryApp.Pages.Categories.EditCategoryModel
+@{
+    ViewData["Title"] = "Edit Category";
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                Edit Category<a class="btn btn-success btn-sm" asp-page="/Categories/Index" style="float:right">Back</a>
+            </div>
+            <div class="card-body">
+
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="category!.Id" />
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" placeholder="Category Name..." asp-for="category!.Name" />
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success btn-sm" style="float:right">Update</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@page
+@model LibraryApp.Pages.Books.DeleteBookModel
+@{
+    ViewData["Title"] = "Delete Book";
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                Delete Book<a class="btn btn-success btn-sm" asp-page="/Books/Index" style="float:right"> Back</a>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <input type="hidden" asp-for="book!.Id" />
+                    <div class="form-group">
+                        <label for="CategoryId">Select Category</label>
+                        <select disabled class="form-control" id="CategoryId" name="CategoryId">
+                            <option selected>--select Category--</option>
+                            @foreach (var cate in Model.CategoriesList)
+                            {
+                                <option selected="@Model.SelectedCate" value="@cate.Id">@cate.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Title</label>
+                        <input type="text" disabled class="form-control" placeholder="Book Title..." asp-for="book!.Title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Author">Author</label>
+                        <input type="text" disabled class="form-control" placeholder="Book Author..." asp-for="book!.Author" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Upload</label><br />
+                        <img src="/@Model.SelectedImage" width="50" height="50" />
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-sm" style="float:right">Delete</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

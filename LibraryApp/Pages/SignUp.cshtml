@@ -1,0 +1,197 @@
+﻿@page
+@model SignUp
+@{
+    ViewData["Title"] = "Sign Up";
+}
+@if (!String.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-secondary" role="alert">
+        @Model.ErrorMessage
+    </div>
+}
+<!-- Form Sign Up -->
+<div class="container">
+    <form class="form" method="post">
+        <p class="title">Register</p>
+        <p class="message">Signup now and get full access to our app.</p>
+        <div class="flex">
+            <label>
+                <input required="" placeholder="" type="text" class="input" id="firstname" name="FirstName">
+                <span>Firstname</span>
+            </label>
+
+            <label>
+                <input required="" placeholder="" type="text" class="input" id="lastname" name="LastName">
+                <span>Lastname</span>
+            </label>
+        </div>
+
+        <label>
+            <input required="" placeholder="" type="email" class="input" id="email" name="Email">
+            <span>Email</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="password" class="input" id="password" name="Password">
+            <span>Password</span>
+        </label>
+        <label>
+            <input required="" placeholder="" type="password" class="input" id="confirmPassword" name="ConfirmPassword">
+            <span>Confirm password</span>
+        </label>
+        <button type="submit" class="submit">Submit</button>
+        <p class="signin">Already have an account? <a href="/SignIn">Sign in</a></p>
+    </form>
+</div>
+
+<!-- Validation Script -->
+<script>
+    function validateRegistrationForm() {
+        var firstname = document.getElementById('firstname').value;
+        var lastname = document.getElementById('lastname').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (firstname === "" || lastname === "" || email === "" || password === "" || confirmPassword === "") {
+            alert("Please fill out all fields");
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Password and Confirm Password do not match");
+            return false;
+        }
+
+        // Additional validation logic can be added here if needed
+
+        return true;
+    }
+</script>
+
+
+<!-- Form CSS -->
+<style>
+    .container { /* Use Container to Center Form without affecting the Layout CSS */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form { /* CSS for Form design */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 350px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .title {
+        font-size: 28px;
+        color: black;
+        font-weight: 600;
+        letter-spacing: -1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+    }
+
+        .title::before, .title::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: black;
+        }
+
+        .title::before {
+            width: 18px;
+            height: 18px;
+            background-color: black;
+        }
+
+        .title::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
+        }
+
+    .message, .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 14px;
+    }
+
+    .signin {
+        text-align: center;
+    }
+
+        .signin a {
+            color: black;
+        }
+
+            .signin a:hover {
+                text-decoration: underline black;
+            }
+
+    .flex {
+        display: flex;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .form label {
+        position: relative;
+    }
+
+        .form label .input {
+            width: 100%;
+            padding: 10px 10px 20px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+        }
+
+            .form label .input + span {
+                position: absolute;
+                left: 10px;
+                top: 15px;
+                color: grey;
+                font-size: 0.9em;
+                cursor: text;
+                transition: 0.3s ease;
+            }
+
+            .form label .input:placeholder-shown + span {
+                top: 15px;
+                font-size: 0.9em;
+            }
+
+            .form label .input:focus + span, .form label .input:valid + span {
+                top: 30px;
+                font-size: 0.7em;
+                font-weight: 600;
+            }
+
+            .form label .input:valid + span {
+                color: green;
+            }
+
+    .submit {
+        padding: 10px 15px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        border-radius: 20px;
+        border: 0 !important;
+        outline: 0 !important;
+        background: #00ABB3;
+        color: white;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+</style>

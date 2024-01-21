@@ -1,0 +1,54 @@
+﻿@page
+@model Contact
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section id="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-methods-horizontal">
+        <div class="contact-method">
+            <img src="LibraryApp/Assets/phone-call.png" alt="Phone Icon" class="icon">
+            <p>Phone Us</p>
+            <p>Example: +1 (123) 456-7890</p>
+        </div>
+
+        <div class="contact-method">
+            <img src="LibraryApp/Assets/envelope.png" alt="Email Icon" class="icon">
+            <p>Email Us</p>
+            <p>Example: info@example.com</p>
+        </div>
+
+        <div class="contact-method">
+            <img src="C:\Users\oxhei\source\repos\LibraryApp\LibraryApp\Assets\comment.png" alt="Live Chat Icon" class="icon">
+            <p>Live Chat</p>
+            <p>Example: Click the chat bubble to start a conversation</p>
+        </div>
+    </div>
+</section>
+
+
+<style>
+#contact-section {
+    text-align: center;
+}
+
+.contact-methods-horizontal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    flex: 1 1 200px; /* Adjust the width as needed */
+    margin: 10px;
+    text-align: center;
+}
+
+.icon {
+    width: 50px; /* Adjust the size of the icon as needed */
+    height: 50px;
+    margin-bottom: 10px;
+}
+</style>

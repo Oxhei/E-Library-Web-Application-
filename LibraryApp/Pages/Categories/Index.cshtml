@@ -1,0 +1,38 @@
+﻿@page
+@model LibraryApp.Pages.Categories.IndexModel
+@{
+    ViewData["Title"] = "Category";
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" asp-page="/Categories/AddCategory">Add Category</a>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var cate in Model.categoryList){
+                            <tr>
+                                <th scope="row">@cate.Id</th>
+                                <td>@cate.Name</td>
+                                <td>
+                                    <a asp-page="/Categories/EditCategory" asp-route-id="@cate.Id" class="btn btn-success btn-sm">Edit</a>
+                                    <a asp-page="/Categories/DeleteCategory" asp-route-id="@cate.Id" class="btn btn-success btn-sm">delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

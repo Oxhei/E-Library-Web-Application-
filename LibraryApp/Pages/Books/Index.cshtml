@@ -1,0 +1,43 @@
+﻿@page
+@model LibraryApp.Pages.Books.IndexModel
+@{
+    ViewData["Title"] = "Book";
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" asp-page="/Books/AddBook">Add Book</a>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var book in Model.bookList)
+                        {
+                            <tr>
+                                <th scope="row">@book.Id</th>
+                                <td><img src="@book.ImageURL.Replace("\\","/")" width="50" height="50" alt="@book.ImageURL" /></td>
+                                <td>@book.Title</td>
+                                <td>@book.Author</td>
+                                <td>
+                                    <a asp-page="/Books/EditBook" asp-route-id="@book.Id" class="btn btn-success btn-sm">Edit</a>
+                                    <a asp-page="/Books/DeleteBook" asp-route-id="@book.Id" class="btn btn-success btn-sm">delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

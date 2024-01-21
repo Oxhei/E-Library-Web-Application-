@@ -1,0 +1,31 @@
+﻿@page
+@model LibraryApp.Pages.Categories.AddCategoryModel
+@{
+    ViewData["Title"] = "Add Category";
+}
+@if (!String.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-secondary" role="alert">
+        @Model.ErrorMessage
+    </div>
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                Create Category
+                <a asp-page="/Categories/Index" class="btn btn-sm btn-info" style="float:right">Back</a>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Category Name">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm" style="float:right">Save</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

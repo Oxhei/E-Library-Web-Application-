@@ -1,0 +1,44 @@
+﻿@page
+@model LibraryApp.Pages.Users.AddUserModel
+@{
+    ViewData["Title"] = "Add User";
+}
+@if (!String.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-secondary" role="alert">
+        @Model.ErrorMessage
+    </div>
+}
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                Create User
+                <a asp-page="/Users/Index" class="btn btn-sm btn-info" style="float:right">Back</a>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="user!.Id" />
+                    <div class="form-group">
+                        <label for="Name">First Name</label>
+                        <input type="text" class="form-control" placeholder="User First Name..." asp-for="user!.FirstName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Last Name</label>
+                        <input type="text" class="form-control" placeholder="User Last Name..." asp-for="user!.LastName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Email</label>
+                        <input type="text" class="form-control" placeholder="User Email..." asp-for="user!.Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Password</label>
+                        <input type="password" class="form-control" placeholder="User Password..." asp-for="user!.Password" />
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm" style="float:right">Save</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
