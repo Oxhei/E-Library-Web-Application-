@@ -4,51 +4,93 @@
     ViewData["Title"] = "Contact";
 }
 
-<section id="contact-section">
-    <h2>Contact Us</h2>
-    <div class="contact-methods-horizontal">
-        <div class="contact-method">
-            <img src="LibraryApp/Assets/phone-call.png" alt="Phone Icon" class="icon">
-            <p>Phone Us</p>
-            <p>Example: +1 (123) 456-7890</p>
+<section class="container mt-5">
+    <div class="row">
+        <!-- Left Column for Heading and Video -->
+        <div class="col-md-6">
+            <h2 style="margin-left: 200px; margin-bottom: 20px;">Contact Us</h2>
+            <!-- Embed YouTube Video -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <div class="contact-method">
-            <img src="LibraryApp/Assets/envelope.png" alt="Email Icon" class="icon">
-            <p>Email Us</p>
-            <p>Example: info@example.com</p>
-        </div>
+        <!-- Right Column for Contact Form -->
+        <div class="col-md-6">
+            <div id="contact-section">
+                <section id="contact-section" class="container mt-5">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="contact-method">
-            <img src="C:\Users\oxhei\source\repos\LibraryApp\LibraryApp\Assets\comment.png" alt="Live Chat Icon" class="icon">
-            <p>Live Chat</p>
-            <p>Example: Click the chat bubble to start a conversation</p>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="messageBox">What can we help you with?</label>
+                            <textarea class="form-control" id="messageBox" rows="4" placeholder="Your message"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
 </section>
 
-
 <style>
-#contact-section {
-    text-align: center;
-}
+    #contact-section {
+        text-align: center;
+    }
 
-.contact-methods-horizontal {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    .contact-methods-horizontal {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
-.contact-method {
-    flex: 1 1 200px; /* Adjust the width as needed */
-    margin: 10px;
-    text-align: center;
-}
+    .contact-method {
+        flex: 1 1 200px; /* Adjust the width as needed */
+        margin: 10px;
+        text-align: center;
+    }
 
-.icon {
-    width: 50px; /* Adjust the size of the icon as needed */
-    height: 50px;
-    margin-bottom: 10px;
-}
+    .icon {
+        width: 50px; /* Adjust the size of the icon as needed */
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    /* Form Css */
+    #contact-section {
+        background-color: white; /* Set the background color */
+        padding: 20px; /* Add some padding inside the box */
+        border-radius: 10px; /* Curved corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+        max-width: 600px; /* Max width of the form */
+        margin: auto; /* Center the form on the page */
+    }
+
+    .form-group label {
+        font-weight: bold; /* Optional: Makes labels bold */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Primary button color */
+        border-color: #007bff; /* Border color for button */
+    }
 </style>
