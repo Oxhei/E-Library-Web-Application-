@@ -7,13 +7,22 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://www.shutterstock.com/image-photo/wide-angle-panorama-autumn-forestmisty-260nw-1195159864.jpg" class="d-block w-100" alt="...">
+            <img src="Images/Readers Corner/Banner1.png" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="https://www.shutterstock.com/image-photo/wide-angle-panorama-autumn-forestmisty-260nw-1195159864.jpg" class="d-block w-100" alt="...">
+            <img src="Images/Readers Corner/Banner2.png" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="https://www.shutterstock.com/image-photo/wide-angle-panorama-autumn-forestmisty-260nw-1195159864.jpg" class="d-block w-100" alt="...">
+            <img src="Images/Readers Corner/Banner3.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="Images/Readers Corner/Banner4.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="Images/Readers Corner/Banner5.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="Images/Readers Corner/Banner6.png" class="d-block w-100" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -27,7 +36,6 @@
 </div>
 
 
-<!-- Book Caoursel -->
 <!-- Book Carousel CSS-->
 <style>
     .carousel-container {
@@ -46,14 +54,20 @@
     .book {
         min-width: 200px;
         margin: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
         text-align: center;
     }
 
         .book img {
-            max-width: 100%;
-            height: auto;
-        }
+    width: 100%;              /* Use 100% of the .book container width */
+    height: 40vh;             /* Adjust the height to 20% of the viewport height */
+    object-fit: fill;        /* Cover the area without stretching the image */
+    display: block;           /* Prevent inline spacing */
+    border-radius: 10px;      /* Round the edges with a 10px radius */
+    width: 280px;
+}
+
+
 
     .carousel-btn {
         cursor: pointer;
@@ -76,25 +90,8 @@
     }
 </style>
 
-@* <!-- Books of the Month -->
-<div class="carousel-container">
-    <h4>Books of the Month</h4>
-    <div class="carousel" id="bookCarousel1">
-        <!-- Add book items here -->
-        <div class="book"><img src="https://www.designbookcover.pt/uploads/media/photos/cache/b1_only_words_72_media_huge_thumbnail.jpg" alt="Book 1"><h3>Book 1</h3><p>Author 1</p></div>
-        <div class="book"><img src="https://i.pinimg.com/originals/7d/f5/b0/7df5b0481d7d4c0dee7b7027161f9c1f.png" alt="Book 2"><h3>Book 2</h3><p>Author 2</p></div>
-        <div class="book"><img src="https://marketplace.canva.com/EAFaQMYuZbo/1/0/1003w/canva-brown-rusty-mystery-novel-book-cover-hG1QhA7BiBU.jpg" alt="Book 3"><h3>Book 3</h3><p>Author 3</p></div>
-        <div class="book"><img src="https://d3ddkgxe55ca6c.cloudfront.net/assets/t1689842150/a/38/32/221454-ml-2197303.jpg" alt="Book 4"><h3>Book 4</h3><p>Author 4</p></div>
-        <div class="book"><img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/340146837/original/fb0b15c17777c0f7c1f7b95c1ea61b2f28019b55/do-book-cover-design-book-cover-design.jpeg" alt="Book 5"><h3>Book 5</h3><p>Author 5</p></div>
-        <div class="book"><img src="https://cdn.pastemagazine.com/www/articles/2019/12/06/dunebbc19final.jpg" alt="Book 6"><h3>Book 6</h3><p>Author 6</p></div>
-        <!-- Add more books as needed -->
-    </div>
 
-    <button class="carousel-btn prev-btn" onclick="prevSlide('bookCarousel1')">&#10094;</button>
-    <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel1')">&#10095;</button>
-</div>
- *@
-<!-- Arts & Culture -->
+<!-- Carousel Display for Books  -->
 @foreach (var cate in Model.categories)
 {
     <div class="carousel-container">
@@ -115,119 +112,4 @@
         <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel2')">&#10095;</button> <!-- If adding more carousel change the 'BookCarousel#' attribute -->
     </div>
 }
-@* <div class="carousel-container">
-    <h4>Arts & Culture</h4>
-    <div class="carousel" id="bookCarousel2">
-        <!-- Add your book items here -->
-        <div class="book"><img src="https://thebrokenspine.co.uk/wp-content/uploads/2023/10/Amazon-Format-Front-Cover-27-1-642x1024.jpg" alt="Book 4"><h3>Book 4</h3><p>Author 4</p></div>
-        <div class="book"><img src="https://cdn.venngage.com/template/thumbnail/small/2b90cfc2-1964-45b4-806a-08fc4c1fb030.webp" alt="Book 5"><h3>Book 5</h3><p>Author 5</p></div>
-        <div class="book"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfNsEVmaJ_COO-ucqfDj3shbK35igmNP03Pw&usqp=CAU" alt="Book 6"><h3>Book 6</h3><p>Author 6</p></div>
-        <div class="book"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4T4jf3eJFsrzjNPi7nrSlSb3nUrMR28tIp1L5rCP0joY4rR8m5Lp1ROn4NJU-DH9Ut9w&usqp=CAU" alt="Book 4"><h3>Book 4</h3><p>Author 4</p></div>
-        <div class="book"><img src="https://www.skipprichard.com/wp-content/uploads/2018/12/9781338196993.jpg" alt="Book 5"><h3>Book 5</h3><p>Author 5</p></div>
-        <div class="book"><img src="https://thebrokenspine.co.uk/wp-content/uploads/2023/10/FFT-Cover-683x1024.jpg" alt="Book 6"><h3>Book 6</h3><p>Author 6</p></div>
-        <!-- Add more books as needed -->
-    </div>
 
-    <button class="carousel-btn prev-btn" onclick="prevSlide('bookCarousel2')">&#10094;</button>
-    <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel2')">&#10095;</button> <!-- If adding more carousel change the 'BookCarousel#' attribute -->
-</div>
-
-<!-- Fiction & Non-Fiction -->
-<div class="carousel-container">
-    <h4>Fiction and Non-Fiction</h4>
-    <div class="carousel" id="bookCarousel3">
-        <!-- Add book items here -->
-        <div class="book"><img src="https://miblart.com/wp-content/uploads/2020/11/Ultimate-Anxiety-Free.jpg" alt="Book 1"><h3>Book 1</h3><p>Author 1</p></div>
-        <div class="book"><img src="https://cdn.kobo.com/book-images/65bb7b2e-2c46-4c85-ab22-56d1fee3cc6c/353/569/90/False/naruto-vol-8.jpg" alt="Book 2"><h3>Book 2</h3><p>Author 2</p></div>
-        <div class="book"><img src="https://m.media-amazon.com/images/I/818fOuBHTnL._AC_UF894,1000_QL80_.jpg" alt="Book 3"><h3>Book 3</h3><p>Author 3</p></div>
-        <div class="book"><img src="https://covers.bookcoverzone.com/slir/h1200/png24-front/bookcover0011855.jpg" alt="Book 4"><h3>Book 4</h3><p>Author 4</p></div>
-        <div class="book"><img src="https://cdn.venngage.com/template/thumbnail/small/319ce564-2649-4fa1-9506-2f8791a9e0d9.webp" alt="Book 5"><h3>Book 5</h3><p>Author 5</p></div>
-        <div class="book"><img src="https://cdn.venngage.com/template/thumbnail/small/74c72bb5-52e4-441b-b0f1-6c0e6744bda7.webp" alt="Book 6"><h3>Book 6</h3><p>Author 6</p></div>
-        <!-- Add more books as needed -->
-    </div>
-
-    <button class="carousel-btn prev-btn" onclick="prevSlide('bookCarousel3')">&#10094;</button>
-    <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel3')">&#10095;</button>
-</div>
-
-<!-- Business -->
-<div class="carousel-container">
-    <h4>Business</h4>
-    <div class="carousel" id="bookCarousel4">
-        <!-- Add book items here -->
-        <div class="book"><img src="https://marketplace.canva.com/EAFJLlGV0_8/1/0/1003w/canva-yellow-black-modern-business-book-cover-iyBHtvr2Oa4.jpg" alt="Book 1"><h3>Book 1</h3><p>Author 1</p></div>
-        <div class="book"><img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/yellow-business-leadership-book-cover-design-template-dce2f5568638ad4643ccb9e725e5d6ff_screen.jpg?ts=1698303966" alt="Book 2"><h3>Book 2</h3><p>Author 2</p></div>
-        <div class="book"><img src="https://bookcoverssl.com/wp-content/uploads/2022/07/Your-Next-Moves-960x1536.jpg" alt="Book 3"><h3>Book 3</h3><p>Author 3</p></div>
-        <div class="book"><img src="https://cdn.kobo.com/book-images/fce42af9-f52f-4003-ba74-a27772498a3f/1200/1200/False/100m-offers-3.jpg" alt="Book 4"><h3>Book 4</h3><p>Author 4</p></div>
-        <div class="book"><img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF894,1000_QL80_.jpg" alt="Book 5"><h3>Book 5</h3><p>Author 5</p></div>
-        <div class="book"><img src="https://cdn.kobo.com/book-images/da72477e-6861-463e-9d39-ff7a9156c6fa/1200/1200/False/hustle-harder-hustle-smarter-1.jpg" alt="Book 6"><h3>Book 6</h3><p>Author 6</p></div>
-        <!-- Add more books as needed -->
-    </div>
-
-    <button class="carousel-btn prev-btn" onclick="prevSlide('bookCarousel4')">&#10094;</button>
-    <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel4')">&#10095;</button>
-</div>
-
-<!-- Health -->
-<div class="carousel-container">
-    <h4>Health</h4>
-    <div class="carousel" id="bookCarousel5">
-        <!-- Add book items here -->
-        <div class="book"><img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1619451085-51j0psYgqHL._SL500_.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="Book 1"><h3>Book 1</h3><p>Author 1</p></div>
-        <div class="book"><img src="https://www.runtothefinish.com/wp-content/uploads/2021/01/how-bad.jpg" alt="Book 2"><h3>Book 2</h3><p>Author 2</p></div>
-        <div class="book"><img src="https://harpercollins.co.uk/cdn/shop/products/x500_4504b150-bee9-4ab2-bd49-14d666a419c3_500x.jpg?v=1704015017" alt="Book 3"><h3>Book 3</h3><p>Author 3</p></div>
-        <div class="book"><img src="https://cdn.waterstones.com/bookjackets/large/9780/2413/9780241336977.jpg" alt="Book 4"><h3>Book 4</h3><p>Author 4</p></div>
-        <div class="book"><img src="https://makeheadway.com/_next/image/?url=https%3A%2F%2Fstatic.get-headway.com%2FgqDyUY1V9xLIRbJrRKZL-1622c9faa7e746-en.jpg&w=750&q=75" alt="Book 5"><h3>Book 5</h3><p>Author 5</p></div>
-        <div class="book"><img src="https://m.media-amazon.com/images/I/81yt-dNtX2L._AC_UF894,1000_QL80_.jpg" alt="Book 6"><h3>Book 6</h3><p>Author 6</p></div>
-        <!-- Add more books as needed -->
-    </div>
-
-    <button class="carousel-btn prev-btn" onclick="prevSlide('bookCarousel5')">&#10094;</button>
-    <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel5')">&#10095;</button>
-</div>
-
-<!-- Search by Subject -->
-<div class="carousel-container">
-    <h4>Search by Subject</h4>
-    <div class="carousel" id="bookCarousel6">
-        <!-- Add book items here -->
-        <div class="book"><img src="book1.jpg" alt="Book 1"><h3>Book 1</h3><p>Author 1</p></div>
-        <div class="book"><img src="book2.jpg" alt="Book 2"><h3>Book 2</h3><p>Author 2</p></div>
-        <div class="book"><img src="book3.jpg" alt="Book 3"><h3>Book 3</h3><p>Author 3</p></div>
-        <div class="book"><img src="book1.jpg" alt="Book 4"><h3>Book 4</h3><p>Author 4</p></div>
-        <div class="book"><img src="book2.jpg" alt="Book 5"><h3>Book 5</h3><p>Author 5</p></div>
-        <div class="book"><img src="book3.jpg" alt="Book 6"><h3>Book 6</h3><p>Author 6</p></div>
-        <!-- Add more books as needed -->
-    </div>
-
-    <button class="carousel-btn prev-btn" onclick="prevSlide('bookCarousel6')">&#10094;</button>
-    <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel6')">&#10095;</button>
-</div>
- *@
-<!-- Book Carousel JavaScript -->
-<script>
-    function showSlide(id, index) {
-        const carousel = document.getElementById(id);
-        const books = carousel.querySelectorAll('.book');
-        const slideWidth = books[0].offsetWidth;
-        carousel.style.transform = `translateX(-${index * slideWidth}px)`;
-    }
-
-    function nextSlide(id) {
-        const carousel = document.getElementById(id);
-        const books = carousel.querySelectorAll('.book');
-        let currentIndex = (carousel.dataset.currentIndex || 0) * 1;
-        currentIndex = (currentIndex + 1) % books.length;
-        carousel.dataset.currentIndex = currentIndex;
-        showSlide(id, currentIndex);
-    }
-
-    function prevSlide(id) {
-        const carousel = document.getElementById(id);
-        const books = carousel.querySelectorAll('.book');
-        let currentIndex = (carousel.dataset.currentIndex || 0) * 1;
-        currentIndex = (currentIndex - 1 + books.length) % books.length;
-        carousel.dataset.currentIndex = currentIndex;
-        showSlide(id, currentIndex);
-    }
-</script>
