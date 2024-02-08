@@ -49,45 +49,25 @@
     .carousel {
         display: flex;
         transition: transform 0.5s ease-in-out;
+        flex-wrap: nowrap; /* Prevent wrapping */
     }
 
     .book {
-        min-width: 200px;
+        flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+        width: 280px; /* Adjust width as needed */
         margin: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
     }
 
         .book img {
-    width: 100%;              /* Use 100% of the .book container width */
-    height: 40vh;             /* Adjust the height to 20% of the viewport height */
-    object-fit: fill;        /* Cover the area without stretching the image */
-    display: block;           /* Prevent inline spacing */
-    border-radius: 10px;      /* Round the edges with a 10px radius */
-    width: 280px;
-}
+            width: 100%;
+            height: 40vh;
+            object-fit: fill;
+            display: block;
+            border-radius: 10px;
+        }
 
-
-
-    .carousel-btn {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
-        color: #333;
-        background-color: transparent;
-        border: none;
-        outline: none;
-    }
-
-    .prev-btn {
-        left: 10px;
-    }
-
-    .next-btn {
-        right: 10px;
-    }
 </style>
 
 
@@ -100,16 +80,18 @@
             var bookCarouseId = "bookCarousel" + @cate.Id;
         }
         <div class="carousel" id=`@bookCarouseId`>
-        @foreach (var book in Model.BookList.Where(x => x.BookCategoryId == cate.Id).ToList())
-        {
-                <!-- Add your book items here -->
-                <div class="book"><img src="@book.BookImagePath.Replace("\\","/")" alt="@book.BookTitle"><h3>@book.BookTitle</h3><p>@book.BookAuthor</p></div>
-                <!-- Add more books as needed -->
-           
-        }
+            @foreach (var book in Model.BookList.Where(x => x.BookCategoryId == cate.Id).ToList())
+            {
+                <div class="book">
+                    <img src="@book.BookImagePath.Replace("\\","/")" alt="@book.BookTitle">
+                    <h3>@book.BookTitle</h3>
+                    <p>@book.BookAuthor</p>
+                </div>
+            }
         </div>
-        <button class="carousel-btn prev-btn" onclick="prevSlide('bookCarousel2')">&#10094;</button>
-        <button class="carousel-btn next-btn" onclick="nextSlide('bookCarousel2')">&#10095;</button> <!-- If adding more carousel change the 'BookCarousel#' attribute -->
+        <button class="carousel-btn prev-btn" onclick="prevSlide('@bookCarouseId')">&#10094;</button>
+        <button class="carousel-btn next-btn" onclick="nextSlide('@bookCarouseId')">&#10095;</button>
     </div>
 }
+
 
