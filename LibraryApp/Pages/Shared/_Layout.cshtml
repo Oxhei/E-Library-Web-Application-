@@ -24,15 +24,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Contact">Contact Us</a>
-                        </li>
                         @{
                             if (!String.IsNullOrEmpty(Model.LoginUserEmail))
                             {
@@ -86,14 +77,9 @@
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer class="border-top footer text-muted">
-    <h3>Contact Us</h3>
-            <a href="https://www.github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:youremail@example.com"><i class="fas fa-envelope"></i></a>
-        </footer>
+    
 
+  
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
